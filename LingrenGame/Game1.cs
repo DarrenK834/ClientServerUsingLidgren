@@ -50,9 +50,9 @@ namespace LingrenGame
             client.Start();
             InGameMessage = "This Client has a unique id of " + client.UniqueIdentifier.ToString();
             // Note Named parameters for more readable code
-            //client.Connect(host: "127.0.0.1", port: 12345);
+            client.Connect(host: "127.0.0.1", port: 14242);
             //search in local network at port 50001
-            client.DiscoverLocalPeers(12345);
+            client.DiscoverLocalPeers(14242);
             
             base.Initialize();
         }
@@ -154,7 +154,7 @@ namespace LingrenGame
                         if (thisPlayer == null)
                         {
                             string ImageName = "Badges_" + Utility.NextRandom(0, playerTextures.Count - 1);
-                            thisPlayer = new GamePlayer(client, Guid.NewGuid(), ImageName,
+                            thisPlayer = new GamePlayer(client, Guid.NewGuid(), "D", ImageName,
                                           new Vector2(Utility.NextRandom(100, GraphicsDevice.Viewport.Width - 100),
                                                        Utility.NextRandom(100, GraphicsDevice.Viewport.Height - 100)));
 

@@ -33,14 +33,14 @@ namespace LingrenGame
 
         }
 
-        public GamePlayer(NetClient client, Guid playerid, string ImgName, Vector2 StartPos)
+        public GamePlayer(NetClient client, Guid playerid, string gamerTag, string ImgName, Vector2 StartPos)
         {
 
             position = StartPos;
             playerID = playerid.ToString();
             ImageName = ImgName;
             // consruct a join player packet and serialise it
-            _playerDataPacket = new PlayerData("Join", ImageName, PlayerID, StartPos.X,StartPos.Y);
+            _playerDataPacket = new PlayerData("Join", ImageName, "D", PlayerID, StartPos.X,StartPos.Y);
             string json = JsonConvert.SerializeObject(_playerDataPacket);
             // construct the outgoing message
             NetOutgoingMessage sendMsg = client.CreateMessage();
